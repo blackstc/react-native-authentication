@@ -6,11 +6,12 @@ var {
 
 var Parse = require('parse/react-native');
 var Signin = require('./components/authentication/signin');
+var Signup = require('./components/authentication/signup');
 
 var ROUTES = {
     signin: Signin,
-
-}
+    signup: Signup
+};
 
 module.exports = React.createClass({
     componentWillMount: function() {
@@ -18,7 +19,7 @@ module.exports = React.createClass({
     },
     renderScene: function(route, navigator) {
         var Component = ROUTES[route.name];
-        return <Component />
+        return <Component route={route} navigator={navigator}/>
     },
     render: function() {
         return (

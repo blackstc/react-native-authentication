@@ -37,6 +37,7 @@ module.exports = React.createClass({
 
                 <Text style={styles.label}>{this.state.errorMessage}</Text>
                 <Button text={'Sign In'} onPress={this.onSigninPress} />
+                <Button text={'I need an account...'} onPress={this.onSignupPress} />
             </View>
         );
     },
@@ -45,6 +46,9 @@ module.exports = React.createClass({
             success: (user) => { console.log(user); },
             error: (data, error) => { this.setState({ errorMessage: error.message }) }
         });
+    },
+    onSignupPress: function() {
+        this.props.navigator.push({name: 'signup'});
     }
 });
 
